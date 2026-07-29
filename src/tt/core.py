@@ -629,7 +629,7 @@ class Factory(ABC):
         self.on_start()
         try:
             # Start the first client.
-            self.queue().put(_StartFirstClient(self))
+            self.queue.put(_StartFirstClient(self))
             # Run commands until closed.
             while not self.closed:
                 operation = self.queue.get()
