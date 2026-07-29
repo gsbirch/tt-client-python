@@ -14,7 +14,7 @@ You can download and install this library using
 pip install git+https://github.com/sgware/tt-client-python
 ```
 
-# Build from Source
+## Build from Source
 
 To download this library and build it from source:
 ```
