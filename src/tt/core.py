@@ -20,35 +20,35 @@ import socket
 import ssl
 import json
 
-# The client's version of the Tandem Tales protocol.
 VERSION = "0.9.0"
+"""The client's version of the Tandem Tales protocol."""
 
-# The default port on which to connect to the server.
 DEFAULT_PORT = 9005
+"""The default port on which to connect to the server."""
 
-# The string used by the Tandem Tales server for the player role.
 PLAYER = 'PLAYER'
+"""The string used by the Tandem Tales server for the player role."""
 
-# The string used by the Tandem Tales server for the game master role.
 GM = 'GAME_MASTER'
+"""The string used by the Tandem Tales server for the game master role."""
 
-# The string used by the Tandem Tales server for turn types that propose an action.
 PROPOSE = 'PROPOSE'
+"""The string used by the Tandem Tales server for turn types that propose an action."""
 
-# The string used by the Tandem Tales server for turn types that execute an action.
 SUCCEED = 'SUCCEED'
+"""The string used by the Tandem Tales server for turn types that execute an action."""
 
-# The string used by the Tandem Tales server for turn types where an action fails.
 FAIL = 'FAIL'
+"""The string used by the Tandem Tales server for turn types where an action fails."""
 
-# The string used by the Tandem Tales server for turns types that pass control to the partner.
 PASS = 'PASS'
+"""The string used by the Tandem Tales server for turns types that pass control to the partner."""
 
-# The name of the environment variable where the agent's password is stored.
 ENV_PASSWORD = "password"
+"""The name of the environment variable where the agent's password is stored."""
 
-# The name of the environment variable where the agent's API key is stored.
 ENV_API_KEY = "apikey";
+"""The name of the environment variable where the agent's API key is stored."""
 
 class _ClientInput(threading.Thread):
     """
@@ -570,7 +570,8 @@ class Factory(ABC):
     method `create` must be implemented; it should return a new client object.
     
     Attributes:
-        max: The maximum number of clients that may be running at a time.
+        max: The maximum number of clients that may be running at a time or 0
+            for no limit.
         queue: A queue of operations waiting to run on the factory's thread.
         waiting: The clients currently connected to the server and waiting.
         running: The clients currently in sessions.
@@ -579,7 +580,8 @@ class Factory(ABC):
         closed: If the factory has been closed.
     
     Arguments:
-        max (int): The maximum number of clients that may be running at a time.
+        max (int): The maximum number of clients that may be running at a time
+            or 0 for no limit.
     """
     
     def __init__(self, max=0):
