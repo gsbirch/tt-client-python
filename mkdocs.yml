@@ -1,0 +1,32 @@
+# Project Information
+site_name: Tandem Tales Client (Python)
+site_author: "Stephen G. Ware"
+site_url: https://sgware.github.io/tt-client-python
+copyright: "Copyright &copy; 2026 <a href=\"http://sgware.com\">Stephen G. Ware</a> and the <a href=\"http://uky.edu\">University of Kentucky</a>. Released under the <a href=\"http://opensource.org/license/gpl-3.0\">GPL-3.0 license</a>."
+
+# Repository Settings
+repo_name: GitHub
+repo_url: https://github.com/sgware/tt-client-python
+
+# Tell mkdocs where to find the source .md files and to output its HTML files
+# into the docs directory for GitHub pages.
+docs_dir: docs_src
+site_dir: docs
+
+# Design and Theme
+theme:
+  name: material
+  language: en
+
+# Plugins
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+
+# Navigation Links
+nav:
+  - About: index.md
+  - API Reference: api.md

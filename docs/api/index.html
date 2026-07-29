@@ -1,0 +1,3706 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Stephen G. Ware">
+      
+      
+        <link rel="canonical" href="https://sgware.github.io/tt-client-python/api/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>API Reference - Tandem Tales Client (Python)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tandem-tales-client-python-api-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Tandem Tales Client (Python)" class="md-header__button md-logo" aria-label="Tandem Tales Client (Python)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tandem Tales Client (Python)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sgware/tt-client-python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Tandem Tales Client (Python)" class="md-nav__button md-logo" aria-label="Tandem Tales Client (Python)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Tandem Tales Client (Python)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sgware/tt-client-python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tt.Client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Client
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Client">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.close" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        close
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.connect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        connect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.on_choice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on_choice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.on_close" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on_close
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.on_connect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on_connect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.on_disconnect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on_disconnect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.on_end" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on_end
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.on_error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on_error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.on_start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on_start
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.on_stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on_stop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.on_update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on_update
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.on_warning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on_warning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.receive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        receive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.send" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        send
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tt.Factory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Factory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Factory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tt.Factory.close" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        close
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Factory.create" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        create
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Factory.on_close" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on_close
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Factory.on_start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on_start
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Factory.on_stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on_stop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Factory.run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tt.Client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Client
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Client">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.close" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        close
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.connect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        connect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.on_choice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on_choice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.on_close" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on_close
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.on_connect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on_connect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.on_disconnect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on_disconnect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.on_end" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on_end
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.on_error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on_error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.on_start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on_start
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.on_stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on_stop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.on_update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on_update
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.on_warning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on_warning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.receive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        receive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Client.send" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        send
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tt.Factory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Factory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Factory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tt.Factory.close" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        close
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Factory.create" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        create
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Factory.on_close" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on_close
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Factory.on_start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on_start
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Factory.on_stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on_stop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tt.Factory.run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="tandem-tales-client-python-api-reference">Tandem Tales Client (Python) API Reference</h1>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="tt.Client" class="doc doc-heading">
+            <code>tt.Client</code>
+
+
+</h2>
+
+
+    <div class="doc doc-contents first">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="abc.ABC">ABC</span></code>, <code><span title="threading.Thread">Thread</span></code></p>
+
+
+
+        <p>A Tandem Tales client connects to a server to participate in a paired
+storytelling session. The abstract method <code>on_choice</code> must be implemented
+to return the index of the desired choice when it is this client's turn.
+A client can be run as thread or directy by calling the <code>run</code> method.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="tt.Client.factory">factory</span></code></td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The factory object that created this client.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="tt.Client.join">join</span></code></td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>This client's join message.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="tt.Client.key">key</span></code></td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>This client's API key.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="tt.Client.url">url</span></code></td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The URL of the server to connect to.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="tt.Client.port">port</span></code></td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The port number to connect on.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="tt.Client.world">world</span></code></td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Will be set to a world object once the session starts.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="tt.Client.role">role</span></code></td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The client's role in the story. Updated after session starts.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="tt.Client.status">status</span></code></td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The most recent story world status received from the server.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="tt.Client.choices">choices</span></code></td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The list of choices currently available to make.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="tt.Client.stop">stop</span></code></td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The stop message received from the server.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="tt.Client.session">session</span></code></td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The session ID received from the server after the session.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>name</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The name this client will use on the server.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>password</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The password this client will use when connecting to the
+server. If None, will be read from the environment variables.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>world</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The name of the story world this client wants to play in.
+None means willing to play in any world.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>role</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Must be <code>PLAYER</code> or <code>GAME_MASTER</code>. All other values are
+treated as None, which means willing to play either role.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>partner</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The name of the partner this client wants to play with.
+None means willing to play with any partner.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>key</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The key this client will use to access to external API. If
+None, will be read from the environment variables.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>url</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The URL of the server this client will connect to.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;localhost&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>port</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The port number this client will connect to the server on.</p>
+              </div>
+            </td>
+            <td>
+                  <code><span title="tt.core.TT_DEFAULT_PORT">TT_DEFAULT_PORT</span></code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+              <details class="mkdocstrings-source">
+                <summary>Source code in <code>src\tt\core.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span>
+<span class="normal">336</span>
+<span class="normal">337</span>
+<span class="normal">338</span>
+<span class="normal">339</span>
+<span class="normal">340</span>
+<span class="normal">341</span>
+<span class="normal">342</span>
+<span class="normal">343</span>
+<span class="normal">344</span>
+<span class="normal">345</span>
+<span class="normal">346</span>
+<span class="normal">347</span>
+<span class="normal">348</span>
+<span class="normal">349</span>
+<span class="normal">350</span>
+<span class="normal">351</span>
+<span class="normal">352</span>
+<span class="normal">353</span>
+<span class="normal">354</span>
+<span class="normal">355</span>
+<span class="normal">356</span>
+<span class="normal">357</span>
+<span class="normal">358</span>
+<span class="normal">359</span>
+<span class="normal">360</span>
+<span class="normal">361</span>
+<span class="normal">362</span>
+<span class="normal">363</span>
+<span class="normal">364</span>
+<span class="normal">365</span>
+<span class="normal">366</span>
+<span class="normal">367</span>
+<span class="normal">368</span>
+<span class="normal">369</span>
+<span class="normal">370</span>
+<span class="normal">371</span>
+<span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span>
+<span class="normal">383</span>
+<span class="normal">384</span>
+<span class="normal">385</span>
+<span class="normal">386</span>
+<span class="normal">387</span>
+<span class="normal">388</span>
+<span class="normal">389</span>
+<span class="normal">390</span>
+<span class="normal">391</span>
+<span class="normal">392</span>
+<span class="normal">393</span>
+<span class="normal">394</span>
+<span class="normal">395</span>
+<span class="normal">396</span>
+<span class="normal">397</span>
+<span class="normal">398</span>
+<span class="normal">399</span>
+<span class="normal">400</span>
+<span class="normal">401</span>
+<span class="normal">402</span>
+<span class="normal">403</span>
+<span class="normal">404</span>
+<span class="normal">405</span>
+<span class="normal">406</span>
+<span class="normal">407</span>
+<span class="normal">408</span>
+<span class="normal">409</span>
+<span class="normal">410</span>
+<span class="normal">411</span>
+<span class="normal">412</span>
+<span class="normal">413</span>
+<span class="normal">414</span>
+<span class="normal">415</span>
+<span class="normal">416</span>
+<span class="normal">417</span>
+<span class="normal">418</span>
+<span class="normal">419</span>
+<span class="normal">420</span>
+<span class="normal">421</span>
+<span class="normal">422</span>
+<span class="normal">423</span>
+<span class="normal">424</span>
+<span class="normal">425</span>
+<span class="normal">426</span>
+<span class="normal">427</span>
+<span class="normal">428</span>
+<span class="normal">429</span>
+<span class="normal">430</span>
+<span class="normal">431</span>
+<span class="normal">432</span>
+<span class="normal">433</span>
+<span class="normal">434</span>
+<span class="normal">435</span>
+<span class="normal">436</span>
+<span class="normal">437</span>
+<span class="normal">438</span>
+<span class="normal">439</span>
+<span class="normal">440</span>
+<span class="normal">441</span>
+<span class="normal">442</span>
+<span class="normal">443</span>
+<span class="normal">444</span>
+<span class="normal">445</span>
+<span class="normal">446</span>
+<span class="normal">447</span>
+<span class="normal">448</span>
+<span class="normal">449</span>
+<span class="normal">450</span>
+<span class="normal">451</span>
+<span class="normal">452</span>
+<span class="normal">453</span>
+<span class="normal">454</span>
+<span class="normal">455</span>
+<span class="normal">456</span>
+<span class="normal">457</span>
+<span class="normal">458</span>
+<span class="normal">459</span>
+<span class="normal">460</span>
+<span class="normal">461</span>
+<span class="normal">462</span>
+<span class="normal">463</span>
+<span class="normal">464</span>
+<span class="normal">465</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Client</span><span class="p">(</span><span class="n">ABC</span><span class="p">,</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A Tandem Tales client connects to a server to participate in a paired</span>
+<span class="sd">    storytelling session. The abstract method `on_choice` must be implemented</span>
+<span class="sd">    to return the index of the desired choice when it is this client&#39;s turn.</span>
+<span class="sd">    A client can be run as thread or directy by calling the `run` method.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        factory: The factory object that created this client.</span>
+<span class="sd">        join: This client&#39;s join message.</span>
+<span class="sd">        key: This client&#39;s API key.</span>
+<span class="sd">        url: The URL of the server to connect to.</span>
+<span class="sd">        port: The port number to connect on.</span>
+<span class="sd">        world: Will be set to a world object once the session starts.</span>
+<span class="sd">        role: The client&#39;s role in the story. Updated after session starts.</span>
+<span class="sd">        status: The most recent story world status received from the server.</span>
+<span class="sd">        choices: The list of choices currently available to make.</span>
+<span class="sd">        stop: The stop message received from the server.</span>
+<span class="sd">        session: The session ID received from the server after the session.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        name (str): The name this client will use on the server.</span>
+<span class="sd">        password (str): The password this client will use when connecting to the</span>
+<span class="sd">            server. If None, will be read from the environment variables.</span>
+<span class="sd">        world (str): The name of the story world this client wants to play in.</span>
+<span class="sd">            None means willing to play in any world.</span>
+<span class="sd">        role (str): Must be `PLAYER` or `GAME_MASTER`. All other values are</span>
+<span class="sd">            treated as None, which means willing to play either role.</span>
+<span class="sd">        partner (str): The name of the partner this client wants to play with.</span>
+<span class="sd">            None means willing to play with any partner.</span>
+<span class="sd">        key (str): The key this client will use to access to external API. If</span>
+<span class="sd">            None, will be read from the environment variables.</span>
+<span class="sd">        url (str): The URL of the server this client will connect to.</span>
+<span class="sd">        port (int): The port number this client will connect to the server on.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">world</span><span class="p">,</span> <span class="n">role</span><span class="p">,</span> <span class="n">partner</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">TT_DEFAULT_PORT</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">password</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">TT_ENV_PASSWORD</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
+            <span class="n">password</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="n">TT_ENV_PASSWORD</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">TT_ENV_API_KEY</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="n">TT_ENV_API_KEY</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">factory</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">join</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Join&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+            <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="n">password</span><span class="p">,</span>
+            <span class="s2">&quot;world&quot;</span><span class="p">:</span> <span class="n">world</span><span class="p">,</span>
+            <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="n">role</span><span class="p">,</span>
+            <span class="s2">&quot;partner&quot;</span><span class="p">:</span> <span class="n">partner</span>
+        <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="n">key</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">url</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="n">port</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">socket</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># Will be set when the agent connects.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">world</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># Will be set to the world object after session starts.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">role</span> <span class="o">=</span> <span class="n">role</span> <span class="c1"># Will be updated after session starts.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">choices</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;[Client: name=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">join</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="s1">&#39;password&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">join</span><span class="p">:</span>
+            <span class="nb">str</span> <span class="o">+=</span> <span class="s1">&#39;; password=&quot;***&quot;&#39;</span>
+        <span class="k">if</span> <span class="s1">&#39;world&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">join</span><span class="p">:</span>
+            <span class="nb">str</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;; world=</span><span class="se">\&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">join</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="s1">&#39;role&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">join</span><span class="p">:</span>
+            <span class="nb">str</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;; role=</span><span class="se">\&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">join</span><span class="p">[</span><span class="s1">&#39;role&#39;</span><span class="p">]</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="s1">&#39;partner&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">join</span><span class="p">:</span>
+            <span class="nb">str</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;; partner=</span><span class="se">\&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">join</span><span class="p">[</span><span class="s1">&#39;partner&#39;</span><span class="p">]</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="nb">str</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Connects to the server, joins, waits for a session to start, sends the</span>
+<span class="sd">        choices made by this client, and returns the session ID of the completed</span>
+<span class="sd">        session. As this method runs, it calls other methods to notify the</span>
+<span class="sd">        client of important events. Some of these methods are guaranteed to be</span>
+<span class="sd">        called even if an exception is raised. The list of those methods is:</span>
+
+<span class="sd">        1. `connect` is called to establish the socket. If this method raises</span>
+<span class="sd">           an exception, it is raised immediately and no other methods run.</span>
+<span class="sd">        2. `on_connect` is called after receiving the connect message from the</span>
+<span class="sd">           server. This is the last chance to make changes to the join request.</span>
+<span class="sd">        3. `on_start` is called after the session starts.</span>
+<span class="sd">        4. `on_update` is called each time the client receives an update to the</span>
+<span class="sd">           story world status from the server.</span>
+<span class="sd">        5. `on_choice` is called when the client receives an update that</span>
+<span class="sd">           requires it to make a choice of what action to take next.</span>
+<span class="sd">        6. `on_end` is called if the story reaches a pre-defined ending.</span>
+<span class="sd">        7. `on_close` is called when the client stops its session normally,</span>
+<span class="sd">           like reaching the end of the story, closing, or disconnecting. If</span>
+<span class="sd">           the client stopped because it was interrupted or because of an</span>
+<span class="sd">           exception, this method is not called.</span>
+<span class="sd">        8. `on_stop` will always be called if the client&#39;s session started.</span>
+<span class="sd">        9. `on_disconnect` will always be called if the client connected.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Warn if the password and API key are not set.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">join</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">TT_ENV_PASSWORD</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">on_warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The environment variable </span><span class="se">\&quot;</span><span class="si">{</span><span class="n">TT_ENV_PASSWORD</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2"> is not set. This agent will not use a password.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">TT_ENV_API_KEY</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">on_warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The environment variable </span><span class="se">\&quot;</span><span class="si">{</span><span class="n">TT_ENV_API_KEY</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2"> is not set. This agent will not be able to use the external API.&quot;</span><span class="p">)</span>
+        <span class="c1"># Connect to the server.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+        <span class="c1"># If an exception is raised, save it to raise later.</span>
+        <span class="n">uncaught</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Wait for the connect message.</span>
+            <span class="n">connect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">receive</span><span class="p">(</span><span class="s1">&#39;Connect&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">connect</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">connect</span><span class="p">[</span><span class="s1">&#39;version&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">TT_VERSION</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">on_warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;This client is using version </span><span class="si">{</span><span class="n">TT_VERSION</span><span class="si">}</span><span class="s2"> of the communication protocol, but the server is using version </span><span class="si">{</span><span class="n">connect</span><span class="p">[</span><span class="s1">&#39;version&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">. This may cause misconnunications.&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">on_connect</span><span class="p">(</span><span class="n">connect</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">join</span><span class="p">)</span>
+            <span class="c1"># Wait for the start message.</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">receive</span><span class="p">(</span><span class="s1">&#39;Start&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">start</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">world</span> <span class="o">=</span> <span class="n">start</span><span class="p">[</span><span class="s1">&#39;world&#39;</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">role</span> <span class="o">=</span> <span class="n">start</span><span class="p">[</span><span class="s1">&#39;role&#39;</span><span class="p">]</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">factory</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">factory</span><span class="o">.</span><span class="n">_on_start</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="c1"># Receive and process messages from the server.</span>
+            <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">world</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">message</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">receive</span><span class="p">()</span>
+                <span class="c1"># Stop if disconnected.</span>
+                <span class="k">if</span> <span class="n">message</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">break</span>
+                <span class="c1"># Handle update messages.   </span>
+                <span class="k">elif</span> <span class="n">message</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Update&quot;</span><span class="p">:</span>
+                    <span class="c1"># If this is the first update, notify the client the session has started.</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">message</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">choices</span> <span class="o">=</span> <span class="n">message</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">][</span><span class="s1">&#39;choices&#39;</span><span class="p">]</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">on_start</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">world</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">role</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">])</span>
+                    <span class="c1"># If this is not the first update, update the current status and choices.</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">message</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">choices</span> <span class="o">=</span> <span class="n">message</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">][</span><span class="s1">&#39;choices&#39;</span><span class="p">]</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">on_update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+                    <span class="c1"># If it is this client&#39;s turn, make a choice.</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">choices</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">choices</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="s1">&#39;[]&#39;</span><span class="p">)</span>
+                        <span class="n">choice</span> <span class="o">=</span> <span class="p">{</span>
+                            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Choice&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="n">index</span>
+                        <span class="p">}</span>
+                        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">stopped</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">choice</span><span class="p">)</span>
+                    <span class="c1"># If the story has ended, notify this client.</span>
+                    <span class="k">elif</span> <span class="s1">&#39;ending&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">on_end</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">[</span><span class="s1">&#39;ending&#39;</span><span class="p">])</span>
+                <span class="c1"># Immediately acknowledge stop messages.</span>
+                <span class="k">elif</span> <span class="n">message</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Stop&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="o">=</span> <span class="n">message</span>
+                    <span class="n">stop</span> <span class="o">=</span> <span class="p">{</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Stop&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">role</span>
+                    <span class="p">}</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">stop</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">on_stop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">])</span>
+                <span class="c1"># Get session ID from end message.</span>
+                <span class="k">elif</span> <span class="n">message</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;End&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="n">message</span><span class="p">[</span><span class="s1">&#39;session&#39;</span><span class="p">]</span>
+                    <span class="k">break</span>
+                <span class="c1"># Handle errors reports by the server.</span>
+                <span class="k">elif</span> <span class="n">message</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Error&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">on_error</span><span class="p">(</span><span class="n">message</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">])</span>
+                <span class="c1"># Handle unrecognized message types.</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">m</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">40</span><span class="p">:</span>
+                        <span class="n">m</span> <span class="o">=</span> <span class="n">m</span><span class="p">[:</span><span class="mi">40</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;...&#39;</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">on_error</span><span class="p">(</span><span class="s2">&quot;The message </span><span class="se">\&quot;</span><span class="si">{m}</span><span class="se">\&quot;</span><span class="s2"> is not recognized.&quot;</span><span class="p">)</span>
+        <span class="c1"># Register an uncaught exception.</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exception</span><span class="p">:</span>
+            <span class="n">uncaught</span> <span class="o">=</span> <span class="n">exception</span>
+        <span class="c1"># If the client is interrupted...</span>
+        <span class="k">except</span> <span class="ne">KeyboardInterrupt</span> <span class="k">as</span> <span class="n">interrupt</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">uncaught</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">uncaught</span> <span class="o">=</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Client was interrupted.&quot;</span><span class="p">)</span>
+        <span class="c1"># If this client ended normally, close.</span>
+        <span class="k">if</span> <span class="n">uncaught</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">on_close</span><span class="p">()</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exception</span><span class="p">:</span>
+                <span class="n">uncaught</span> <span class="o">=</span> <span class="n">exception</span>
+        <span class="c1"># If the session started but has not stopped, stop it.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">world</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">on_stop</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exception</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">uncaught</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">uncaught</span> <span class="o">=</span> <span class="n">exception</span>
+        <span class="c1"># Close the socket.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="c1"># Let this client know it has disconnected.</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">on_disconnect</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exception</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">uncaught</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">uncaught</span> <span class="o">=</span> <span class="n">exception</span>
+        <span class="c1"># If there were no problems, return the session ID.</span>
+        <span class="k">if</span> <span class="n">uncaught</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">uncaught</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a secure connection to the server and creates the client input</span>
+<span class="sd">        and output utilities.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">context</span> <span class="o">=</span> <span class="n">ssl</span><span class="o">.</span><span class="n">create_default_context</span><span class="p">()</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">create_connection</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">socket</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">wrap_socket</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">server_hostname</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="o">.</span><span class="n">do_handshake</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">input</span> <span class="o">=</span> <span class="n">_ClientInput</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">_ClientOutput</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">receive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Receives a message from the server as an object parsed from JSON,</span>
+<span class="sd">        waiting if one is not available. None means the socket has been closed.</span>
+<span class="sd">        If an exception was raised on the client listener thread, it is raised</span>
+<span class="sd">        when this method is called instead of on that thread.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">receive</span><span class="p">(</span><span class="nb">type</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">r</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">send</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Converts an object to JSON and send it to the server.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Closes this client&#39;s socket.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">socket</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="o">.</span><span class="n">shutdown</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">SHUT_RDWR</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connect</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Called after receiving the connect message from the server.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">world</span><span class="p">,</span> <span class="n">role</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Called after the session starts.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            world (dict[str, Any]): An object detailing the entities, variables,</span>
+<span class="sd">                actions and endings available in this session&#39;s story world.</span>
+<span class="sd">            role (str): The role this client is playing, which will be either</span>
+<span class="sd">                `PLAYER` or `GAME_MASTER`.</span>
+<span class="sd">            state (dict[str, Any]): An object giving the current value of all</span>
+<span class="sd">                variables when the story starts.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Called when the server sends a story world status update.</span>
+
+<span class="sd">        status[&#39;history&#39;] is all turns that have happend so far.</span>
+<span class="sd">        status[&#39;state&#39;] gives the current value of all variables.</span>
+<span class="sd">        status[&#39;ending&#39;] gives the story&#39;s ending, or None if it is ongoing.</span>
+<span class="sd">        status[&#39;descriptions&#39;] gives descriptions of all visible entities.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_choice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Called when the server sends a story world status update that requires</span>
+<span class="sd">        this client to chose what turn will happen next. This method must</span>
+<span class="sd">        return the index (starting at 0) of the action it wants to take. The</span>
+<span class="sd">        list of choices can be found in status[&#39;choices&#39;].</span>
+
+<span class="sd">        status[&#39;history&#39;] is all turns that have happend so far.</span>
+<span class="sd">        status[&#39;state&#39;] gives the current value of all variables.</span>
+<span class="sd">        status[&#39;ending&#39;] gives the story&#39;s ending, or None if it is ongoing.</span>
+<span class="sd">        status[&#39;descriptions&#39;] gives descriptions of all visible entities.</span>
+<span class="sd">        status[&#39;choices&#39;] gives the list of currently available turns.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ending</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Called when the story reaches one of its pre-defined endings.</span>
+
+<span class="sd">        The `ending` object has a description of how the story ended.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_stop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Always called at the end of the client&#39;s life is the session started.</span>
+
+<span class="sd">        The `message` is a string explaining why the client stopped, and it may</span>
+<span class="sd">        be None.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Called if the client stopped normally or because it was closed or</span>
+<span class="sd">        disconnected. Not called if the client stopped because an exception was</span>
+<span class="sd">        raised.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_disconnect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Always called at the end of the client&#39;s life if it connected.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_warning</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Called if a non-fatal problem occurs with a string explanation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Warning: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Called if a fatal problem occurs with a string explanation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">complete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">system</span><span class="p">,</span> <span class="n">prompt</span><span class="p">,</span> <span class="n">temp</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;External API features not yet implemented.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">embed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;External API features not yet implemented.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_key</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The client does not have an API key, so it cannot use the external API.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">key</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="tt.Client.close" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">close</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Closes this client's socket.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src\tt\core.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">354</span>
+<span class="normal">355</span>
+<span class="normal">356</span>
+<span class="normal">357</span>
+<span class="normal">358</span>
+<span class="normal">359</span>
+<span class="normal">360</span>
+<span class="normal">361</span>
+<span class="normal">362</span>
+<span class="normal">363</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Closes this client&#39;s socket.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">socket</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="o">.</span><span class="n">shutdown</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">SHUT_RDWR</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="tt.Client.connect" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">connect</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Creates a secure connection to the server and creates the client input
+and output utilities.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src\tt\core.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span>
+<span class="normal">336</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a secure connection to the server and creates the client input</span>
+<span class="sd">    and output utilities.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">context</span> <span class="o">=</span> <span class="n">ssl</span><span class="o">.</span><span class="n">create_default_context</span><span class="p">()</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">create_connection</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="p">))</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">socket</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">wrap_socket</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">server_hostname</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="o">.</span><span class="n">do_handshake</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">input</span> <span class="o">=</span> <span class="n">_ClientInput</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">_ClientOutput</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="tt.Client.on_choice" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">on_choice</span><span class="p">(</span><span class="n">status</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-abstractmethod"><code>abstractmethod</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Called when the server sends a story world status update that requires
+this client to chose what turn will happen next. This method must
+return the index (starting at 0) of the action it wants to take. The
+list of choices can be found in status['choices'].</p>
+<p>status['history'] is all turns that have happend so far.
+status['state'] gives the current value of all variables.
+status['ending'] gives the story's ending, or None if it is ongoing.
+status['descriptions'] gives descriptions of all visible entities.
+status['choices'] gives the list of currently available turns.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src\tt\core.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">396</span>
+<span class="normal">397</span>
+<span class="normal">398</span>
+<span class="normal">399</span>
+<span class="normal">400</span>
+<span class="normal">401</span>
+<span class="normal">402</span>
+<span class="normal">403</span>
+<span class="normal">404</span>
+<span class="normal">405</span>
+<span class="normal">406</span>
+<span class="normal">407</span>
+<span class="normal">408</span>
+<span class="normal">409</span>
+<span class="normal">410</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@abstractmethod</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">on_choice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Called when the server sends a story world status update that requires</span>
+<span class="sd">    this client to chose what turn will happen next. This method must</span>
+<span class="sd">    return the index (starting at 0) of the action it wants to take. The</span>
+<span class="sd">    list of choices can be found in status[&#39;choices&#39;].</span>
+
+<span class="sd">    status[&#39;history&#39;] is all turns that have happend so far.</span>
+<span class="sd">    status[&#39;state&#39;] gives the current value of all variables.</span>
+<span class="sd">    status[&#39;ending&#39;] gives the story&#39;s ending, or None if it is ongoing.</span>
+<span class="sd">    status[&#39;descriptions&#39;] gives descriptions of all visible entities.</span>
+<span class="sd">    status[&#39;choices&#39;] gives the list of currently available turns.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="tt.Client.on_close" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">on_close</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Called if the client stopped normally or because it was closed or
+disconnected. Not called if the client stopped because an exception was
+raised.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src\tt\core.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">429</span>
+<span class="normal">430</span>
+<span class="normal">431</span>
+<span class="normal">432</span>
+<span class="normal">433</span>
+<span class="normal">434</span>
+<span class="normal">435</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">on_close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Called if the client stopped normally or because it was closed or</span>
+<span class="sd">    disconnected. Not called if the client stopped because an exception was</span>
+<span class="sd">    raised.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="tt.Client.on_connect" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">on_connect</span><span class="p">(</span><span class="n">connect</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Called after receiving the connect message from the server.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src\tt\core.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">365</span>
+<span class="normal">366</span>
+<span class="normal">367</span>
+<span class="normal">368</span>
+<span class="normal">369</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">on_connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connect</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Called after receiving the connect message from the server.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="tt.Client.on_disconnect" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">on_disconnect</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Always called at the end of the client's life if it connected.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src\tt\core.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">437</span>
+<span class="normal">438</span>
+<span class="normal">439</span>
+<span class="normal">440</span>
+<span class="normal">441</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">on_disconnect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Always called at the end of the client&#39;s life if it connected.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="tt.Client.on_end" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">on_end</span><span class="p">(</span><span class="n">ending</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Called when the story reaches one of its pre-defined endings.</p>
+<p>The <code>ending</code> object has a description of how the story ended.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src\tt\core.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">412</span>
+<span class="normal">413</span>
+<span class="normal">414</span>
+<span class="normal">415</span>
+<span class="normal">416</span>
+<span class="normal">417</span>
+<span class="normal">418</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">on_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ending</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Called when the story reaches one of its pre-defined endings.</span>
+
+<span class="sd">    The `ending` object has a description of how the story ended.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="tt.Client.on_error" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">on_error</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Called if a fatal problem occurs with a string explanation.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src\tt\core.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">449</span>
+<span class="normal">450</span>
+<span class="normal">451</span>
+<span class="normal">452</span>
+<span class="normal">453</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">on_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Called if a fatal problem occurs with a string explanation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="tt.Client.on_start" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">on_start</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="n">role</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Called after the session starts.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>world</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="Any">Any</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>An object detailing the entities, variables,
+actions and endings available in this session's story world.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>role</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The role this client is playing, which will be either
+<code>PLAYER</code> or <code>GAME_MASTER</code>.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>state</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="Any">Any</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>An object giving the current value of all
+variables when the story starts.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src\tt\core.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">371</span>
+<span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span>
+<span class="normal">383</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">on_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">world</span><span class="p">,</span> <span class="n">role</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Called after the session starts.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        world (dict[str, Any]): An object detailing the entities, variables,</span>
+<span class="sd">            actions and endings available in this session&#39;s story world.</span>
+<span class="sd">        role (str): The role this client is playing, which will be either</span>
+<span class="sd">            `PLAYER` or `GAME_MASTER`.</span>
+<span class="sd">        state (dict[str, Any]): An object giving the current value of all</span>
+<span class="sd">            variables when the story starts.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="tt.Client.on_stop" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">on_stop</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Always called at the end of the client's life is the session started.</p>
+<p>The <code>message</code> is a string explaining why the client stopped, and it may
+be None.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src\tt\core.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">420</span>
+<span class="normal">421</span>
+<span class="normal">422</span>
+<span class="normal">423</span>
+<span class="normal">424</span>
+<span class="normal">425</span>
+<span class="normal">426</span>
+<span class="normal">427</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">on_stop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Always called at the end of the client&#39;s life is the session started.</span>
+
+<span class="sd">    The `message` is a string explaining why the client stopped, and it may</span>
+<span class="sd">    be None.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="tt.Client.on_update" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">on_update</span><span class="p">(</span><span class="n">status</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Called when the server sends a story world status update.</p>
+<p>status['history'] is all turns that have happend so far.
+status['state'] gives the current value of all variables.
+status['ending'] gives the story's ending, or None if it is ongoing.
+status['descriptions'] gives descriptions of all visible entities.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src\tt\core.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">385</span>
+<span class="normal">386</span>
+<span class="normal">387</span>
+<span class="normal">388</span>
+<span class="normal">389</span>
+<span class="normal">390</span>
+<span class="normal">391</span>
+<span class="normal">392</span>
+<span class="normal">393</span>
+<span class="normal">394</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">on_update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Called when the server sends a story world status update.</span>
+
+<span class="sd">    status[&#39;history&#39;] is all turns that have happend so far.</span>
+<span class="sd">    status[&#39;state&#39;] gives the current value of all variables.</span>
+<span class="sd">    status[&#39;ending&#39;] gives the story&#39;s ending, or None if it is ongoing.</span>
+<span class="sd">    status[&#39;descriptions&#39;] gives descriptions of all visible entities.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="tt.Client.on_warning" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">on_warning</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Called if a non-fatal problem occurs with a string explanation.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src\tt\core.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">443</span>
+<span class="normal">444</span>
+<span class="normal">445</span>
+<span class="normal">446</span>
+<span class="normal">447</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">on_warning</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Called if a non-fatal problem occurs with a string explanation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Warning: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="tt.Client.receive" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">receive</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Receives a message from the server as an object parsed from JSON,
+waiting if one is not available. None means the socket has been closed.
+If an exception was raised on the client listener thread, it is raised
+when this method is called instead of on that thread.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src\tt\core.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">338</span>
+<span class="normal">339</span>
+<span class="normal">340</span>
+<span class="normal">341</span>
+<span class="normal">342</span>
+<span class="normal">343</span>
+<span class="normal">344</span>
+<span class="normal">345</span>
+<span class="normal">346</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">receive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Receives a message from the server as an object parsed from JSON,</span>
+<span class="sd">    waiting if one is not available. None means the socket has been closed.</span>
+<span class="sd">    If an exception was raised on the client listener thread, it is raised</span>
+<span class="sd">    when this method is called instead of on that thread.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">receive</span><span class="p">(</span><span class="nb">type</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">r</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="tt.Client.run" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">run</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Connects to the server, joins, waits for a session to start, sends the
+choices made by this client, and returns the session ID of the completed
+session. As this method runs, it calls other methods to notify the
+client of important events. Some of these methods are guaranteed to be
+called even if an exception is raised. The list of those methods is:</p>
+<ol>
+<li><code>connect</code> is called to establish the socket. If this method raises
+   an exception, it is raised immediately and no other methods run.</li>
+<li><code>on_connect</code> is called after receiving the connect message from the
+   server. This is the last chance to make changes to the join request.</li>
+<li><code>on_start</code> is called after the session starts.</li>
+<li><code>on_update</code> is called each time the client receives an update to the
+   story world status from the server.</li>
+<li><code>on_choice</code> is called when the client receives an update that
+   requires it to make a choice of what action to take next.</li>
+<li><code>on_end</code> is called if the story reaches a pre-defined ending.</li>
+<li><code>on_close</code> is called when the client stops its session normally,
+   like reaching the end of the story, closing, or disconnecting. If
+   the client stopped because it was interrupted or because of an
+   exception, this method is not called.</li>
+<li><code>on_stop</code> will always be called if the client's session started.</li>
+<li><code>on_disconnect</code> will always be called if the client connected.</li>
+</ol>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src\tt\core.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Connects to the server, joins, waits for a session to start, sends the</span>
+<span class="sd">    choices made by this client, and returns the session ID of the completed</span>
+<span class="sd">    session. As this method runs, it calls other methods to notify the</span>
+<span class="sd">    client of important events. Some of these methods are guaranteed to be</span>
+<span class="sd">    called even if an exception is raised. The list of those methods is:</span>
+
+<span class="sd">    1. `connect` is called to establish the socket. If this method raises</span>
+<span class="sd">       an exception, it is raised immediately and no other methods run.</span>
+<span class="sd">    2. `on_connect` is called after receiving the connect message from the</span>
+<span class="sd">       server. This is the last chance to make changes to the join request.</span>
+<span class="sd">    3. `on_start` is called after the session starts.</span>
+<span class="sd">    4. `on_update` is called each time the client receives an update to the</span>
+<span class="sd">       story world status from the server.</span>
+<span class="sd">    5. `on_choice` is called when the client receives an update that</span>
+<span class="sd">       requires it to make a choice of what action to take next.</span>
+<span class="sd">    6. `on_end` is called if the story reaches a pre-defined ending.</span>
+<span class="sd">    7. `on_close` is called when the client stops its session normally,</span>
+<span class="sd">       like reaching the end of the story, closing, or disconnecting. If</span>
+<span class="sd">       the client stopped because it was interrupted or because of an</span>
+<span class="sd">       exception, this method is not called.</span>
+<span class="sd">    8. `on_stop` will always be called if the client&#39;s session started.</span>
+<span class="sd">    9. `on_disconnect` will always be called if the client connected.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Warn if the password and API key are not set.</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">join</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">TT_ENV_PASSWORD</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">on_warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The environment variable </span><span class="se">\&quot;</span><span class="si">{</span><span class="n">TT_ENV_PASSWORD</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2"> is not set. This agent will not use a password.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">TT_ENV_API_KEY</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">on_warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The environment variable </span><span class="se">\&quot;</span><span class="si">{</span><span class="n">TT_ENV_API_KEY</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2"> is not set. This agent will not be able to use the external API.&quot;</span><span class="p">)</span>
+    <span class="c1"># Connect to the server.</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+    <span class="c1"># If an exception is raised, save it to raise later.</span>
+    <span class="n">uncaught</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Wait for the connect message.</span>
+        <span class="n">connect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">receive</span><span class="p">(</span><span class="s1">&#39;Connect&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">connect</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">connect</span><span class="p">[</span><span class="s1">&#39;version&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">TT_VERSION</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">on_warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;This client is using version </span><span class="si">{</span><span class="n">TT_VERSION</span><span class="si">}</span><span class="s2"> of the communication protocol, but the server is using version </span><span class="si">{</span><span class="n">connect</span><span class="p">[</span><span class="s1">&#39;version&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">. This may cause misconnunications.&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">on_connect</span><span class="p">(</span><span class="n">connect</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">join</span><span class="p">)</span>
+        <span class="c1"># Wait for the start message.</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">receive</span><span class="p">(</span><span class="s1">&#39;Start&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">start</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">world</span> <span class="o">=</span> <span class="n">start</span><span class="p">[</span><span class="s1">&#39;world&#39;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">role</span> <span class="o">=</span> <span class="n">start</span><span class="p">[</span><span class="s1">&#39;role&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">factory</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">factory</span><span class="o">.</span><span class="n">_on_start</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="c1"># Receive and process messages from the server.</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">world</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">receive</span><span class="p">()</span>
+            <span class="c1"># Stop if disconnected.</span>
+            <span class="k">if</span> <span class="n">message</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="c1"># Handle update messages.   </span>
+            <span class="k">elif</span> <span class="n">message</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Update&quot;</span><span class="p">:</span>
+                <span class="c1"># If this is the first update, notify the client the session has started.</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">message</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">choices</span> <span class="o">=</span> <span class="n">message</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">][</span><span class="s1">&#39;choices&#39;</span><span class="p">]</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">on_start</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">world</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">role</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">])</span>
+                <span class="c1"># If this is not the first update, update the current status and choices.</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">message</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">choices</span> <span class="o">=</span> <span class="n">message</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">][</span><span class="s1">&#39;choices&#39;</span><span class="p">]</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">on_update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+                <span class="c1"># If it is this client&#39;s turn, make a choice.</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">choices</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">choices</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="s1">&#39;[]&#39;</span><span class="p">)</span>
+                    <span class="n">choice</span> <span class="o">=</span> <span class="p">{</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Choice&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="n">index</span>
+                    <span class="p">}</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">stopped</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">choice</span><span class="p">)</span>
+                <span class="c1"># If the story has ended, notify this client.</span>
+                <span class="k">elif</span> <span class="s1">&#39;ending&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">on_end</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">[</span><span class="s1">&#39;ending&#39;</span><span class="p">])</span>
+            <span class="c1"># Immediately acknowledge stop messages.</span>
+            <span class="k">elif</span> <span class="n">message</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Stop&quot;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="o">=</span> <span class="n">message</span>
+                <span class="n">stop</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Stop&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">role</span>
+                <span class="p">}</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">stop</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">on_stop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">])</span>
+            <span class="c1"># Get session ID from end message.</span>
+            <span class="k">elif</span> <span class="n">message</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;End&quot;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="n">message</span><span class="p">[</span><span class="s1">&#39;session&#39;</span><span class="p">]</span>
+                <span class="k">break</span>
+            <span class="c1"># Handle errors reports by the server.</span>
+            <span class="k">elif</span> <span class="n">message</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Error&quot;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">on_error</span><span class="p">(</span><span class="n">message</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">])</span>
+            <span class="c1"># Handle unrecognized message types.</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">m</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">40</span><span class="p">:</span>
+                    <span class="n">m</span> <span class="o">=</span> <span class="n">m</span><span class="p">[:</span><span class="mi">40</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;...&#39;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">on_error</span><span class="p">(</span><span class="s2">&quot;The message </span><span class="se">\&quot;</span><span class="si">{m}</span><span class="se">\&quot;</span><span class="s2"> is not recognized.&quot;</span><span class="p">)</span>
+    <span class="c1"># Register an uncaught exception.</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exception</span><span class="p">:</span>
+        <span class="n">uncaught</span> <span class="o">=</span> <span class="n">exception</span>
+    <span class="c1"># If the client is interrupted...</span>
+    <span class="k">except</span> <span class="ne">KeyboardInterrupt</span> <span class="k">as</span> <span class="n">interrupt</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">uncaught</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">uncaught</span> <span class="o">=</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Client was interrupted.&quot;</span><span class="p">)</span>
+    <span class="c1"># If this client ended normally, close.</span>
+    <span class="k">if</span> <span class="n">uncaught</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">on_close</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exception</span><span class="p">:</span>
+            <span class="n">uncaught</span> <span class="o">=</span> <span class="n">exception</span>
+    <span class="c1"># If the session started but has not stopped, stop it.</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">world</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">on_stop</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exception</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">uncaught</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">uncaught</span> <span class="o">=</span> <span class="n">exception</span>
+    <span class="c1"># Close the socket.</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="c1"># Let this client know it has disconnected.</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">on_disconnect</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exception</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">uncaught</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">uncaught</span> <span class="o">=</span> <span class="n">exception</span>
+    <span class="c1"># If there were no problems, return the session ID.</span>
+    <span class="k">if</span> <span class="n">uncaught</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">uncaught</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="tt.Client.send" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">send</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Converts an object to JSON and send it to the server.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src\tt\core.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">348</span>
+<span class="normal">349</span>
+<span class="normal">350</span>
+<span class="normal">351</span>
+<span class="normal">352</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">send</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Converts an object to JSON and send it to the server.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="tt.Factory" class="doc doc-heading">
+            <code>tt.Factory</code>
+
+
+</h2>
+
+
+    <div class="doc doc-contents first">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="abc.ABC">ABC</span></code></p>
+
+
+
+        <p>A factory continuously creates clients so that when a client starts its
+session a new one will take its place waiting on the server. The abstract
+method <code>create</code> must be implemented; it should return a new client object.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="tt.Factory.max">max</span></code></td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The maximum number of clients that may be running at a time.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="tt.Factory.queue">queue</span></code></td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A queue of operations waiting to run on the factory's thread.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="tt.Factory.waiting">waiting</span></code></td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The clients currently connected to the server and waiting.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="tt.Factory.running">running</span></code></td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The clients currently in sessions.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="tt.Factory.uncaught">uncaught</span></code></td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>An exception raised on another thread waiting to be raised
+on the factory's thread.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="tt.Factory.closed">closed</span></code></td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If the factory has been closed.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>max</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The maximum number of clients that may be running at a time.</p>
+              </div>
+            </td>
+            <td>
+                  <code>0</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+              <details class="mkdocstrings-source">
+                <summary>Source code in <code>src\tt\core.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">539</span>
+<span class="normal">540</span>
+<span class="normal">541</span>
+<span class="normal">542</span>
+<span class="normal">543</span>
+<span class="normal">544</span>
+<span class="normal">545</span>
+<span class="normal">546</span>
+<span class="normal">547</span>
+<span class="normal">548</span>
+<span class="normal">549</span>
+<span class="normal">550</span>
+<span class="normal">551</span>
+<span class="normal">552</span>
+<span class="normal">553</span>
+<span class="normal">554</span>
+<span class="normal">555</span>
+<span class="normal">556</span>
+<span class="normal">557</span>
+<span class="normal">558</span>
+<span class="normal">559</span>
+<span class="normal">560</span>
+<span class="normal">561</span>
+<span class="normal">562</span>
+<span class="normal">563</span>
+<span class="normal">564</span>
+<span class="normal">565</span>
+<span class="normal">566</span>
+<span class="normal">567</span>
+<span class="normal">568</span>
+<span class="normal">569</span>
+<span class="normal">570</span>
+<span class="normal">571</span>
+<span class="normal">572</span>
+<span class="normal">573</span>
+<span class="normal">574</span>
+<span class="normal">575</span>
+<span class="normal">576</span>
+<span class="normal">577</span>
+<span class="normal">578</span>
+<span class="normal">579</span>
+<span class="normal">580</span>
+<span class="normal">581</span>
+<span class="normal">582</span>
+<span class="normal">583</span>
+<span class="normal">584</span>
+<span class="normal">585</span>
+<span class="normal">586</span>
+<span class="normal">587</span>
+<span class="normal">588</span>
+<span class="normal">589</span>
+<span class="normal">590</span>
+<span class="normal">591</span>
+<span class="normal">592</span>
+<span class="normal">593</span>
+<span class="normal">594</span>
+<span class="normal">595</span>
+<span class="normal">596</span>
+<span class="normal">597</span>
+<span class="normal">598</span>
+<span class="normal">599</span>
+<span class="normal">600</span>
+<span class="normal">601</span>
+<span class="normal">602</span>
+<span class="normal">603</span>
+<span class="normal">604</span>
+<span class="normal">605</span>
+<span class="normal">606</span>
+<span class="normal">607</span>
+<span class="normal">608</span>
+<span class="normal">609</span>
+<span class="normal">610</span>
+<span class="normal">611</span>
+<span class="normal">612</span>
+<span class="normal">613</span>
+<span class="normal">614</span>
+<span class="normal">615</span>
+<span class="normal">616</span>
+<span class="normal">617</span>
+<span class="normal">618</span>
+<span class="normal">619</span>
+<span class="normal">620</span>
+<span class="normal">621</span>
+<span class="normal">622</span>
+<span class="normal">623</span>
+<span class="normal">624</span>
+<span class="normal">625</span>
+<span class="normal">626</span>
+<span class="normal">627</span>
+<span class="normal">628</span>
+<span class="normal">629</span>
+<span class="normal">630</span>
+<span class="normal">631</span>
+<span class="normal">632</span>
+<span class="normal">633</span>
+<span class="normal">634</span>
+<span class="normal">635</span>
+<span class="normal">636</span>
+<span class="normal">637</span>
+<span class="normal">638</span>
+<span class="normal">639</span>
+<span class="normal">640</span>
+<span class="normal">641</span>
+<span class="normal">642</span>
+<span class="normal">643</span>
+<span class="normal">644</span>
+<span class="normal">645</span>
+<span class="normal">646</span>
+<span class="normal">647</span>
+<span class="normal">648</span>
+<span class="normal">649</span>
+<span class="normal">650</span>
+<span class="normal">651</span>
+<span class="normal">652</span>
+<span class="normal">653</span>
+<span class="normal">654</span>
+<span class="normal">655</span>
+<span class="normal">656</span>
+<span class="normal">657</span>
+<span class="normal">658</span>
+<span class="normal">659</span>
+<span class="normal">660</span>
+<span class="normal">661</span>
+<span class="normal">662</span>
+<span class="normal">663</span>
+<span class="normal">664</span>
+<span class="normal">665</span>
+<span class="normal">666</span>
+<span class="normal">667</span>
+<span class="normal">668</span>
+<span class="normal">669</span>
+<span class="normal">670</span>
+<span class="normal">671</span>
+<span class="normal">672</span>
+<span class="normal">673</span>
+<span class="normal">674</span>
+<span class="normal">675</span>
+<span class="normal">676</span>
+<span class="normal">677</span>
+<span class="normal">678</span>
+<span class="normal">679</span>
+<span class="normal">680</span>
+<span class="normal">681</span>
+<span class="normal">682</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Factory</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A factory continuously creates clients so that when a client starts its</span>
+<span class="sd">    session a new one will take its place waiting on the server. The abstract</span>
+<span class="sd">    method `create` must be implemented; it should return a new client object.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        max: The maximum number of clients that may be running at a time.</span>
+<span class="sd">        queue: A queue of operations waiting to run on the factory&#39;s thread.</span>
+<span class="sd">        waiting: The clients currently connected to the server and waiting.</span>
+<span class="sd">        running: The clients currently in sessions.</span>
+<span class="sd">        uncaught: An exception raised on another thread waiting to be raised</span>
+<span class="sd">            on the factory&#39;s thread.</span>
+<span class="sd">        closed: If the factory has been closed.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        max (int): The maximum number of clients that may be running at a time.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max</span> <span class="o">=</span> <span class="nb">max</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">Queue</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">waiting</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">executor</span> <span class="o">=</span> <span class="n">ThreadPoolExecutor</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uncaught</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">closed</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">tos</span> <span class="o">=</span> <span class="s1">&#39;[Client Factory: &#39;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">max</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">tos</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">waiting</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">running</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; clients; &#39;</span>
+        <span class="n">tos</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">waiting</span><span class="p">)</span><span class="si">}</span><span class="s2"> waiting; </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">running</span><span class="p">)</span><span class="si">}</span><span class="s2"> running]&quot;</span>
+        <span class="k">return</span> <span class="n">tos</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Starts the factory, starts the first client, and creates new clients as</span>
+<span class="sd">        allowed when clients start or end their sessions. Each client starts on</span>
+<span class="sd">        a different thread, but if their raise exceptions, they will be handled</span>
+<span class="sd">        on this thread. Certain things are guaranteed to happen in order:</span>
+
+<span class="sd">        1. `on_start` is called when this method starts. If it raises an</span>
+<span class="sd">           exception, no other methods are called.</span>
+<span class="sd">        2. The first client is created via `create` and starts.</span>
+<span class="sd">        3. Each time a client starts its session, a new client is created to</span>
+<span class="sd">           take its place on the server, unless this would violate the</span>
+<span class="sd">           factory&#39;s limit on the max number of clients.</span>
+<span class="sd">        4. `on_close` runs when the factory is closed via the `close` method or</span>
+<span class="sd">           if a client raises an exception. `on_close` is not called if the</span>
+<span class="sd">           factory was interrupted or `create` throws an exception. `on_close`</span>
+<span class="sd">           always runs on the thrad that called this method, even if `close`</span>
+<span class="sd">           was called by a different thread.</span>
+<span class="sd">        5. Before shutting down, the factory closes all clients that have not</span>
+<span class="sd">           started their sessions and waits for all clients that have started</span>
+<span class="sd">           their sessions to stop.</span>
+<span class="sd">        6. `on_stop` is always called after all clients have stopped.</span>
+<span class="sd">        7. If an exception was raised at any point, it is thrown after</span>
+<span class="sd">           `on_stop`. If everything shut down normally, this method returns</span>
+<span class="sd">           None.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Let this factory know it has started.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">on_start</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Create the first client.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">()</span>
+            <span class="c1"># Run commands until closed.</span>
+            <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">closed</span><span class="p">:</span>
+                <span class="n">operation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+                <span class="n">operation</span><span class="p">()</span>
+            <span class="c1"># Let this factory know it has closed.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">on_close</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exception</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">uncaught</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">uncaught</span> <span class="o">=</span> <span class="n">exception</span>
+        <span class="k">except</span> <span class="ne">KeyboardInterrupt</span> <span class="k">as</span> <span class="n">interrupt</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">uncaught</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">uncaught</span> <span class="o">=</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Factory was interrupted.&quot;</span><span class="p">)</span>
+        <span class="c1"># Close waiting clients.</span>
+        <span class="k">for</span> <span class="n">client</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">waiting</span><span class="p">:</span>
+            <span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="c1"># Wait for all clients to stop.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">executor</span><span class="o">.</span><span class="n">shutdown</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="c1"># Let this factory know it has stopped.</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">on_stop</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exception</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">uncaught</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">uncaught</span> <span class="o">=</span> <span class="n">exception</span>
+        <span class="c1"># If there were no problems, return null.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">uncaught</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">uncaught</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Called when this factory starts. This is a good place to set up assets</span>
+<span class="sd">        before any clients start.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_create</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+        <span class="n">client</span><span class="o">.</span><span class="n">factory</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">waiting</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">executor</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">_RunClient</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">))</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Client</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create and return a new Tandem Tales client object. This method always</span>
+<span class="sd">        runs on the same thread that called `run`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_on_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">_StartClient</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_on_stop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">_StopClient</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Stop this factory from creating any new clients and begin the shutdown</span>
+<span class="sd">        process. This method can be safely called from any thread.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">_CloseFactory</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Runs after this factory has been closed either by the `close` method or</span>
+<span class="sd">        because an exception was raised by the factory or one of its clients.</span>
+<span class="sd">        This method always runs on the same thread that called `run` even if</span>
+<span class="sd">        `close` was called on a different thread.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Called after all clients have stopped and this factory is about to stop.</span>
+<span class="sd">        This is a good place to clean up.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="tt.Factory.close" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">close</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Stop this factory from creating any new clients and begin the shutdown
+process. This method can be safely called from any thread.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src\tt\core.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">661</span>
+<span class="normal">662</span>
+<span class="normal">663</span>
+<span class="normal">664</span>
+<span class="normal">665</span>
+<span class="normal">666</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Stop this factory from creating any new clients and begin the shutdown</span>
+<span class="sd">    process. This method can be safely called from any thread.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">_CloseFactory</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="tt.Factory.create" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">create</span><span class="p">()</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-abstractmethod"><code>abstractmethod</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Create and return a new Tandem Tales client object. This method always
+runs on the same thread that called <code>run</code>.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src\tt\core.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">647</span>
+<span class="normal">648</span>
+<span class="normal">649</span>
+<span class="normal">650</span>
+<span class="normal">651</span>
+<span class="normal">652</span>
+<span class="normal">653</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@abstractmethod</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Client</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create and return a new Tandem Tales client object. This method always</span>
+<span class="sd">    runs on the same thread that called `run`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="tt.Factory.on_close" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">on_close</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Runs after this factory has been closed either by the <code>close</code> method or
+because an exception was raised by the factory or one of its clients.
+This method always runs on the same thread that called <code>run</code> even if
+<code>close</code> was called on a different thread.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src\tt\core.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">668</span>
+<span class="normal">669</span>
+<span class="normal">670</span>
+<span class="normal">671</span>
+<span class="normal">672</span>
+<span class="normal">673</span>
+<span class="normal">674</span>
+<span class="normal">675</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">on_close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Runs after this factory has been closed either by the `close` method or</span>
+<span class="sd">    because an exception was raised by the factory or one of its clients.</span>
+<span class="sd">    This method always runs on the same thread that called `run` even if</span>
+<span class="sd">    `close` was called on a different thread.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="tt.Factory.on_start" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">on_start</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Called when this factory starts. This is a good place to set up assets
+before any clients start.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src\tt\core.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">634</span>
+<span class="normal">635</span>
+<span class="normal">636</span>
+<span class="normal">637</span>
+<span class="normal">638</span>
+<span class="normal">639</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">on_start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Called when this factory starts. This is a good place to set up assets</span>
+<span class="sd">    before any clients start.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="tt.Factory.on_stop" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">on_stop</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Called after all clients have stopped and this factory is about to stop.
+This is a good place to clean up.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src\tt\core.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">677</span>
+<span class="normal">678</span>
+<span class="normal">679</span>
+<span class="normal">680</span>
+<span class="normal">681</span>
+<span class="normal">682</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">on_stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Called after all clients have stopped and this factory is about to stop.</span>
+<span class="sd">    This is a good place to clean up.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="tt.Factory.run" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">run</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Starts the factory, starts the first client, and creates new clients as
+allowed when clients start or end their sessions. Each client starts on
+a different thread, but if their raise exceptions, they will be handled
+on this thread. Certain things are guaranteed to happen in order:</p>
+<ol>
+<li><code>on_start</code> is called when this method starts. If it raises an
+   exception, no other methods are called.</li>
+<li>The first client is created via <code>create</code> and starts.</li>
+<li>Each time a client starts its session, a new client is created to
+   take its place on the server, unless this would violate the
+   factory's limit on the max number of clients.</li>
+<li><code>on_close</code> runs when the factory is closed via the <code>close</code> method or
+   if a client raises an exception. <code>on_close</code> is not called if the
+   factory was interrupted or <code>create</code> throws an exception. <code>on_close</code>
+   always runs on the thrad that called this method, even if <code>close</code>
+   was called by a different thread.</li>
+<li>Before shutting down, the factory closes all clients that have not
+   started their sessions and waits for all clients that have started
+   their sessions to stop.</li>
+<li><code>on_stop</code> is always called after all clients have stopped.</li>
+<li>If an exception was raised at any point, it is thrown after
+   <code>on_stop</code>. If everything shut down normally, this method returns
+   None.</li>
+</ol>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src\tt\core.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">574</span>
+<span class="normal">575</span>
+<span class="normal">576</span>
+<span class="normal">577</span>
+<span class="normal">578</span>
+<span class="normal">579</span>
+<span class="normal">580</span>
+<span class="normal">581</span>
+<span class="normal">582</span>
+<span class="normal">583</span>
+<span class="normal">584</span>
+<span class="normal">585</span>
+<span class="normal">586</span>
+<span class="normal">587</span>
+<span class="normal">588</span>
+<span class="normal">589</span>
+<span class="normal">590</span>
+<span class="normal">591</span>
+<span class="normal">592</span>
+<span class="normal">593</span>
+<span class="normal">594</span>
+<span class="normal">595</span>
+<span class="normal">596</span>
+<span class="normal">597</span>
+<span class="normal">598</span>
+<span class="normal">599</span>
+<span class="normal">600</span>
+<span class="normal">601</span>
+<span class="normal">602</span>
+<span class="normal">603</span>
+<span class="normal">604</span>
+<span class="normal">605</span>
+<span class="normal">606</span>
+<span class="normal">607</span>
+<span class="normal">608</span>
+<span class="normal">609</span>
+<span class="normal">610</span>
+<span class="normal">611</span>
+<span class="normal">612</span>
+<span class="normal">613</span>
+<span class="normal">614</span>
+<span class="normal">615</span>
+<span class="normal">616</span>
+<span class="normal">617</span>
+<span class="normal">618</span>
+<span class="normal">619</span>
+<span class="normal">620</span>
+<span class="normal">621</span>
+<span class="normal">622</span>
+<span class="normal">623</span>
+<span class="normal">624</span>
+<span class="normal">625</span>
+<span class="normal">626</span>
+<span class="normal">627</span>
+<span class="normal">628</span>
+<span class="normal">629</span>
+<span class="normal">630</span>
+<span class="normal">631</span>
+<span class="normal">632</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Starts the factory, starts the first client, and creates new clients as</span>
+<span class="sd">    allowed when clients start or end their sessions. Each client starts on</span>
+<span class="sd">    a different thread, but if their raise exceptions, they will be handled</span>
+<span class="sd">    on this thread. Certain things are guaranteed to happen in order:</span>
+
+<span class="sd">    1. `on_start` is called when this method starts. If it raises an</span>
+<span class="sd">       exception, no other methods are called.</span>
+<span class="sd">    2. The first client is created via `create` and starts.</span>
+<span class="sd">    3. Each time a client starts its session, a new client is created to</span>
+<span class="sd">       take its place on the server, unless this would violate the</span>
+<span class="sd">       factory&#39;s limit on the max number of clients.</span>
+<span class="sd">    4. `on_close` runs when the factory is closed via the `close` method or</span>
+<span class="sd">       if a client raises an exception. `on_close` is not called if the</span>
+<span class="sd">       factory was interrupted or `create` throws an exception. `on_close`</span>
+<span class="sd">       always runs on the thrad that called this method, even if `close`</span>
+<span class="sd">       was called by a different thread.</span>
+<span class="sd">    5. Before shutting down, the factory closes all clients that have not</span>
+<span class="sd">       started their sessions and waits for all clients that have started</span>
+<span class="sd">       their sessions to stop.</span>
+<span class="sd">    6. `on_stop` is always called after all clients have stopped.</span>
+<span class="sd">    7. If an exception was raised at any point, it is thrown after</span>
+<span class="sd">       `on_stop`. If everything shut down normally, this method returns</span>
+<span class="sd">       None.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Let this factory know it has started.</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">on_start</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Create the first client.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">()</span>
+        <span class="c1"># Run commands until closed.</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">closed</span><span class="p">:</span>
+            <span class="n">operation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="n">operation</span><span class="p">()</span>
+        <span class="c1"># Let this factory know it has closed.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">on_close</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exception</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">uncaught</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">uncaught</span> <span class="o">=</span> <span class="n">exception</span>
+    <span class="k">except</span> <span class="ne">KeyboardInterrupt</span> <span class="k">as</span> <span class="n">interrupt</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">uncaught</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">uncaught</span> <span class="o">=</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Factory was interrupted.&quot;</span><span class="p">)</span>
+    <span class="c1"># Close waiting clients.</span>
+    <span class="k">for</span> <span class="n">client</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">waiting</span><span class="p">:</span>
+        <span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="c1"># Wait for all clients to stop.</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">executor</span><span class="o">.</span><span class="n">shutdown</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># Let this factory know it has stopped.</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">on_stop</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exception</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">uncaught</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">uncaught</span> <span class="o">=</span> <span class="n">exception</span>
+    <span class="c1"># If there were no problems, return null.</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">uncaught</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">uncaught</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 <a href="http://sgware.com">Stephen G. Ware</a> and the <a href="http://uky.edu">University of Kentucky</a>. Released under the <a href="http://opensource.org/license/gpl-3.0">GPL-3.0 license</a>.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
