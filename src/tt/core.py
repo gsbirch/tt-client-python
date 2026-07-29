@@ -503,6 +503,15 @@ class _Operation(ABC):
     def run(self):
         pass
 
+class _StartFirstClient(_Operation):
+    """ Starts the first client. """
+    
+    def __init__(self, factory):
+        super().__init__(factory)
+    
+    def run(self):
+        self.factory._create()
+
 class _RunClient(threading.Thread, _Operation):
     """ Starts a client and ensures it is stopped. """
     
@@ -518,7 +527,7 @@ class _RunClient(threading.Thread, _Operation):
             self.factory._on_stop(self.client)
 
 class _StartClient(_Operation):
-    """ Move a client from waiting to running and start a new one is allowed. """
+    """ Move a client from waiting to running and start a new one if allowed. """
     
     def __init__(self, factory, client):
         super().__init__(factory)
@@ -593,7 +602,7 @@ class Factory(ABC):
         """
         Starts the factory, starts the first client, and creates new clients as
         allowed when clients start or end their sessions. Each client starts on
-        a different thread, but if their raise exceptions, they will be handled
+        a different thread, but if they raise exceptions, they will be handled
         on this thread. Certain things are guaranteed to happen in order:
         
         1. `on_start` is called when this method starts. If it raises an
@@ -604,9 +613,8 @@ class Factory(ABC):
            factory's limit on the max number of clients.
         4. `on_close` runs when the factory is closed via the `close` method or
            if a client raises an exception. `on_close` is not called if the
-           factory was interrupted or `create` throws an exception. `on_close`
-           always runs on the thrad that called this method, even if `close`
-           was called by a different thread.
+           factory was interrupted. `on_close` always runs on the thrad that
+           called this method, even if `close` was called by a different thread.
         5. Before shutting down, the factory closes all clients that have not
            started their sessions and waits for all clients that have started
            their sessions to stop.
@@ -618,8 +626,8 @@ class Factory(ABC):
         # Let this factory know it has started.
         self.on_start()
         try:
-            # Create the first client.
-            self._create()
+            # Start the first client.
+            self.queue().put(_StartFirstClient(self))
             # Run commands until closed.
             while not self.closed:
                 operation = self.queue.get()
