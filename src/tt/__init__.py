@@ -5,6 +5,14 @@ from tt.core import Client, Factory
 __all__ = [
     '__version__',
     '__author__',
+    'VERSION',
+    'DEFAULT_PORT',
+    'PLAYER',
+    'GM',
+    'PROPOSE',
+    'SUCCEED',
+    'FAIL',
+    'PASS',
     'Client',
     'Factory'
 ]

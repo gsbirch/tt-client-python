@@ -21,16 +21,34 @@ import ssl
 import json
 
 # The client's version of the Tandem Tales protocol.
-TT_VERSION = "0.9.0"
+VERSION = "0.9.0"
 
 # The default port on which to connect to the server.
-TT_DEFAULT_PORT = 9005
+DEFAULT_PORT = 9005
+
+# The string used by the Tandem Tales server for the player role.
+PLAYER = 'PLAYER'
+
+# The string used by the Tandem Tales server for the game master role.
+GM = 'GAME_MASTER'
+
+# The string used by the Tandem Tales server for turn types that propose an action.
+PROPOSE = 'PROPOSE'
+
+# The string used by the Tandem Tales server for turn types that execute an action.
+SUCCEED = 'SUCCEED'
+
+# The string used by the Tandem Tales server for turn types where an action fails.
+FAIL = 'FAIL'
+
+# The string used by the Tandem Tales server for turns types that pass control to the partner.
+PASS = 'PASS'
 
 # The name of the environment variable where the agent's password is stored.
-TT_ENV_PASSWORD = "password"
+ENV_PASSWORD = "password"
 
 # The name of the environment variable where the agent's API key is stored.
-TT_ENV_API_KEY = "apikey";
+ENV_API_KEY = "apikey";
 
 class _ClientInput(threading.Thread):
     """
@@ -139,21 +157,21 @@ class Client(ABC, threading.Thread):
             server. If None, will be read from the environment variables.
         world (str): The name of the story world this client wants to play in.
             None means willing to play in any world.
-        role (str): Must be `PLAYER` or `GAME_MASTER`. All other values are
-            treated as None, which means willing to play either role.
+        role (str): Must be PLAYER or GM. All other values are treated as
+            None, which means willing to play either role.
         partner (str): The name of the partner this client wants to play with.
             None means willing to play with any partner.
-        key (str): The key this client will use to access to external API. If
+        key (str): The key this client will use to access the external API. If
             None, will be read from the environment variables.
         url (str): The URL of the server this client will connect to.
         port (int): The port number this client will connect to the server on.
     """
     
-    def __init__(self, name, password, world, role, partner, key, url='localhost', port=TT_DEFAULT_PORT):
-        if password is None and TT_ENV_PASSWORD in os.environ:
-            password = os.environ[TT_ENV_PASSWORD]
-        if key is None and TT_ENV_API_KEY in os.environ:
-            key = os.environ[TT_ENV_API_KEY]
+    def __init__(self, name, password, world, role, partner, key, url='localhost', port=DEFAULT_PORT):
+        if password is None and ENV_PASSWORD in os.environ:
+            password = os.environ[ENV_PASSWORD]
+        if key is None and ENV_API_KEY in os.environ:
+            key = os.environ[ENV_API_KEY]
         self.factory = None
         self.join = {
             "type": "Join",
@@ -212,10 +230,10 @@ class Client(ABC, threading.Thread):
         9. `on_disconnect` will always be called if the client connected.
         """
         # Warn if the password and API key are not set.
-        if self.join['password'] == None and not TT_ENV_PASSWORD in os.environ:
-            self.on_warning(f"The environment variable \"{TT_ENV_PASSWORD}\" is not set. This agent will not use a password.")
-        if self.key == None and not TT_ENV_API_KEY in os.environ:
-            self.on_warning(f"The environment variable \"{TT_ENV_API_KEY}\" is not set. This agent will not be able to use the external API.")
+        if self.join['password'] == None and not ENV_PASSWORD in os.environ:
+            self.on_warning(f"The environment variable \"{ENV_PASSWORD}\" is not set. This agent will not use a password.")
+        if self.key == None and not ENV_API_KEY in os.environ:
+            self.on_warning(f"The environment variable \"{ENV_API_KEY}\" is not set. This agent will not be able to use the external API.")
         # Connect to the server.
         self.connect()
         # If an exception is raised, save it to raise later.
@@ -224,8 +242,8 @@ class Client(ABC, threading.Thread):
             # Wait for the connect message.
             connect = self.receive('Connect')
             if connect != None:
-                if connect['version'] != TT_VERSION:
-                    self.on_warning(f"This client is using version {TT_VERSION} of the communication protocol, but the server is using version {connect['version']}. This may cause misconnunications.")
+                if connect['version'] != VERSION:
+                    self.on_warning(f"This client is using version {VERSION} of the communication protocol, but the server is using version {connect['version']}. This may cause misconnunications.")
                 self.on_connect(connect)
                 self.send(self.join)
             # Wait for the start message.
@@ -376,7 +394,7 @@ class Client(ABC, threading.Thread):
             world (dict[str, Any]): An object detailing the entities, variables,
                 actions and endings available in this session's story world.
             role (str): The role this client is playing, which will be either
-                `PLAYER` or `GAME_MASTER`.
+                PLAYER or GM.
             state (dict[str, Any]): An object giving the current value of all
                 variables when the story starts.
         """
