@@ -64,7 +64,8 @@ Both classes have other lifecycle methods that are meant to be overridden.
 [`Factory`][tt.Factory] has the following lifecycle methods:
 
 - [`on_start`][tt.Factory.on_start], which runs after the factory starts.
-- [`on_close`][tt.Factory.on_close], which runs after the factory has been shut down.
+- [`on_close`][tt.Factory.on_close], which runs after the factory has been shut
+  down.
 - [`on_stop`][tt.Factory.on_stop], which runs before the factory stops.
 
 This [more complete example](https://github.com/sgware/tt-random-agent-python)
