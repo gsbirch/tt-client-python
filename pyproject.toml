@@ -6,7 +6,9 @@ description = "Python library for Tandem Tales clients."
 readme = "readme.md"
 license = "GPL-3.0"
 license-files = ["license.txt"]
-dependencies = []
+dependencies = [
+	"requests>=2.34.2"
+]
 
 [project.urls]
 "Homepage" = "https://sgware.github.io/tt-client-python"
