@@ -580,7 +580,9 @@ class ExternalAPI:
     def embed(self, text, dim=1028):
         """
         Queries the external text embedding API and returns its response as an
-        array of floats.
+        array of floats. Each time this method is called, the number of tokens
+        used it added to `embed_tokens`. If the number of tokens used exceeds
+        `EMBED_TOKENS_LIMIT`, this method will raise an exception.
         
         Arguments:
             text (str): The text which will be embedded as an array of floats.
@@ -617,7 +619,12 @@ class ExternalAPI:
     def complete(self, messages, reasoning='medium', maxt=None, temp=0.0, topk=None, topp=None, minp=None):
         """
         Queries the external text completion API and returns its response as a
-            string.
+            string. Each time this method is called, the number of tokens used
+            in the prompt is added to `complete_in_tokens` and the number of
+            tokens used in reasoning and completion is added to
+            `complete_out_tokens`. If the number of tokens used exceeds
+            `COMPLETE_IN_TOKENS_LIMIT` or `COMPLETE_OUT_TOKENS_LIMIT`
+            respectively, this method will raise an exception.
         
         Arguments:
             messages (str): This can be either a single string or an array of
