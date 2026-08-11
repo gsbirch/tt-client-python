@@ -19,6 +19,7 @@ from concurrent.futures import ThreadPoolExecutor
 import socket
 import ssl
 import json
+import requests
 
 VERSION = "0.9.0"
 """The client's version of the Tandem Tales protocol."""
@@ -49,6 +50,30 @@ ENV_PASSWORD = "password"
 
 ENV_API_KEY = "apikey";
 """The name of the environment variable where the agent's API key is stored."""
+
+EMBED_URL = 'https://openrouter.ai/api/v1/embeddings'
+"""The URL to which large language model text embedding requests will be sent."""
+
+EMBED_MODEL = 'qwen/qwen3-embedding-8b'
+"""The model to be used for large language model text embedding requests."""
+
+EMBED_TOKENS_LIMIT = 1000000
+"""The maximum number of input tokens that can use for text embedding requests."""
+
+COMPLETE_URL = 'https://openrouter.ai/api/v1/chat/completions'
+"""The URL to which large language model text completion requests will be sent."""
+
+COMPLETE_MODEL = 'deepseek/deepseek-v4-flash-0731'
+"""The large language model to be used for text completion requests."""
+
+COMPLETE_IN_TOKENS_LIMIT = 1000000
+"""The maximum number of input tokens that can use for text completion requests."""
+
+COMPLETE_OUT_TOKENS_LIMIT = 1000000
+"""The maximum number of output tokens that can use for text completion requests."""
+
+COMPLETE_SEED = 0
+"""The seed used for large language model text completion requests."""
 
 class _ClientInput(threading.Thread):
     """
@@ -139,17 +164,22 @@ class Client(ABC, threading.Thread):
     A client can be run as thread or directy by calling the `run` method.
     
     Attributes:
-        factory: The factory object that created this client.
-        join: This client's join message.
-        key: This client's API key.
-        url: The URL of the server to connect to.
-        port: The port number to connect on.
-        world: Will be set to a world object once the session starts.
-        role: The client's role in the story. Updated after session starts.
-        status: The most recent story world status received from the server.
-        choices: The list of choices currently available to make.
-        stop: The stop message received from the server.
-        session: The session ID received from the server after the session.
+        factory (Factory): The factory object that created this client.
+        external (ExternalAPI): The external API used for text embedding and
+            completion.
+        join (dict[str, Any]): This client's join message.
+        url (str): The URL of the server to connect to.
+        port (int): The port number to connect on.
+        world (dict[str, Any]): Will be set to a world object once the session
+            starts.
+        role (str): The client's role in the story. Updated after session
+            starts.
+        status (dict[str, Any]): The most recent story world status received
+            from the server.
+        choices (list[dict[str, Any]]): The list of choices currently available
+            to make.
+        stop (dict[str, Any]): The stop message received from the server.
+        session(str): The session ID received from the server after the session.
     
     Arguments:
         name (str): The name this client will use on the server.
@@ -173,6 +203,7 @@ class Client(ABC, threading.Thread):
         if key is None and ENV_API_KEY in os.environ:
             key = os.environ[ENV_API_KEY]
         self.factory = None
+        self.external = ExternalAPI(key)
         self.join = {
             "type": "Join",
             "name": name,
@@ -181,7 +212,6 @@ class Client(ABC, threading.Thread):
             "role": role,
             "partner": partner
         }
-        self.key = key
         self.url = url
         self.port = port
         self.socket = None # Will be set when the agent connects.
@@ -232,7 +262,7 @@ class Client(ABC, threading.Thread):
         # Warn if the password and API key are not set.
         if self.join['password'] == None and not ENV_PASSWORD in os.environ:
             self.on_warning(f"The environment variable \"{ENV_PASSWORD}\" is not set. This agent will not use a password.")
-        if self.key == None and not ENV_API_KEY in os.environ:
+        if self.external.key == None and not ENV_API_KEY in os.environ:
             self.on_warning(f"The environment variable \"{ENV_API_KEY}\" is not set. This agent will not be able to use the external API.")
         # Connect to the server.
         self.connect()
@@ -469,18 +499,209 @@ class Client(ABC, threading.Thread):
         Called if a fatal problem occurs with a string explanation.
         """
         raise RuntimeError(f"Error: {message}")
+
+class ExternalAPI:
+    """
+    Represents the external API used for text embedding and completion.
     
-    def complete(self, system, prompt, temp=0):
-        raise NotImplementedError("External API features not yet implemented.")
+    Attributes:
+        key (str): The API key used to make requests.
+        embed_tokens (int): The number of input tokens used so far by the text
+            embedding model.
+        complete_in_tokens (int): The number of input tokens used so far by the
+            text completion model.
+        complete_out_tokens (int): The number of output toeksn used so far by
+            the text completion model.
     
-    def embed(self, string):
-        raise NotImplementedError("External API features not yet implemented.")
+    Arguments:
+        key (str): The API key used to make requests.
+    """
     
-    def _key(self):
+    def __init__(self, key):
+        self.key = key
+        self.embed_tokens = 0
+        self.complete_in_tokens = 0
+        self.complete_out_tokens = 0
+    
+    def _check_key(self):
+        """
+        Raises an exception if the API key is not set.
+        """
         if self.key == None:
-            raise ValueError("The client does not have an API key, so it cannot use the external API.")
+            raise ValueError('This agent does not have an API key. It cannot used the external API.')
+    
+    def _check_in_limit(self, used, limit):
+        """
+        Raise an exception if the number of input tokens used exceeds the limit.
+        """
+        if used >= limit:
+            raise ValueError(f"The input token limit {limit} has been exceeded.")
+    
+    def _check_out_limit(self, used, limit):
+        """
+        Raise an exception if the number of output tokens used exceeds the limit.
+        """
+        if used >= limit:
+            raise ValueError(f"The output token limit {limit} has been exceeded.")
+    
+    def _check_nominal(self, name, value, values):
+        """
+        Raise an exception if the value given is not a string from a pre-defined
+        list.
+        """
+        if isinstance(value, str) and value in values:
+            pass
         else:
-            return self.key
+            raise ValueError(f"{name} must be one of {values}.")
+    
+    def _check_int(self, name, value, min=None, max=None):
+        """
+        Raise an exception if the given value is not an integer in the given
+        range.
+        """
+        if not isinstance(value, int):
+            raise ValueError(f"{name} must be an integer.")
+        elif min != None and value < min:
+            raise ValueError(f"{name} must be >= {min}.")
+        elif max != None and value > max:
+            raise ValueError(f"{name} must be <= {max}.")
+
+    def _check_float(self, name, value, min=None, max=None):
+        """
+        Raise an exception if the given value is not a float in the given range.
+        """
+        if not isinstance(value, float):
+            raise ValueError(f"{name} must be a float.")
+        elif min != None and value < min:
+            raise ValueError(f"{name} must be >= {min}.")
+        elif max != None and value > max:
+            raise ValueError(f"{name} must be <= {max}.")
+    
+    def embed(self, text, dim=1028):
+        """
+        Queries the external text embedding API and returns its response as an
+        array of floats.
+        
+        Arguments:
+            text (str): The text which will be embedded as an array of floats.
+            dim (int): The number of dimensions in the returned array.
+        """
+        # Check if this request is possible.
+        self._check_key()
+        self._check_in_limit(self.embed_tokens, EMBED_TOKENS_LIMIT)
+        # Construct the data object.
+        data = {
+            'model': EMBED_MODEL,
+            'input_type': 'string',
+            'input': text,
+            'encoding_format': 'float'
+        }
+        if dim != None:
+            self._check_int('Dimensions', dim)
+            data['dimensions'] = dim
+        # Send the request.
+        response = requests.post(
+            url=EMBED_URL,
+            headers={
+                'Authorization': f"Bearer {self.key}",
+                'Content-Type': 'application/json',
+            },
+            data=json.dumps(data)
+        )
+        # Process the response.
+        response.raise_for_status()
+        response_data = json.loads(response.text)
+        self.embed_tokens += response_data['usage']['total_tokens']
+        return response_data['data'][0]['embedding']
+    
+    def complete(self, messages, reasoning='medium', maxt=None, temp=0.0, topk=None, topp=None, minp=None):
+        """
+        Queries the external text completion API and returns its response as a
+            string.
+        
+        Arguments:
+            messages (str): This can be either a single string or an array of
+                strings representing a conversation. If it is a single string,
+                the model will use its default system prompt and treat the
+                string as a message from the user. If it is an array of strings,
+                it must have an even numbered length. The first string will be
+                used as the system prompt. Every odd numbered message will be
+                treated as a message from the user. Every even numbered message
+                (after the first) will be treated as a response from the
+                assistant.
+            reasoning (str): The level of reasoning used by the large language
+                model during text compoetion. Value includes `max`, `high`,
+                `medium`, `low`, and `none`.
+            maxt (int): The maximum number of tokens the model may use to
+                generate its response.
+            temp (float): Influences the randomness of the response. A value of
+                0.0 will give deterministic responses. The max value is 2.0.
+            topk (int): When choosing a next token to add to the output, the
+                model may only choose from the best k tokens.
+            topp (float): When choosing a next token to add to the output, the
+                model may only choose from tokens whose probability add to p.
+            minp (float): When choosing a next token to add to the output, the
+                model may only choose from tokens whose probability is p times
+                the probability of the most likely token.
+        """
+        # Check if this request is possible.
+        self._check_key()
+        self._check_in_limit(self.complete_in_tokens, COMPLETE_IN_TOKENS_LIMIT)
+        self._check_out_limit(self.complete_out_tokens, COMPLETE_OUT_TOKENS_LIMIT)
+        # Construct the conversation.
+        msg = []
+        # If messages is a single string, use no system prompt.
+        if isinstance(messages, str):
+            msg.append({ 'role': 'user', 'content': messages })
+        # Otherwise, assume messages is an array of strings.
+        else:
+            if(len(messages) % 2 == 1):
+                raise ValueError('Conversation must have an even number of messages.')
+            msg.append({ 'role': 'system', 'content': messages[0] })
+            for i, m in enumerate(messages):
+                if i % 2 == 0:
+                    msg.append({ 'role': 'user', 'content': m })
+                else:
+                    msg.append({ 'role': 'assistant', 'content': m })
+        # Construct the data object.
+        data = {
+            'model': COMPLETE_MODEL,
+            'messages': msg,
+            'seed': COMPLETE_SEED
+        }
+        if reasoning != None:
+            self._check_nominal('Reasoning level', reasoning, {'max', 'high', 'medium', 'low', 'none'})
+            data['reasoning_effort'] = reasoning
+        if maxt != None:
+            self._check_int('Max output tokens', maxt)
+            data['max_completion_tokens'] = maxt
+        if temp != None:
+            self._check_float('Temperature', temp, 0.0, 2.0)
+            data['temperature'] = temp
+        if topk != None:
+            self._check_int('Top K', topk)
+            data['top_k'] = topk
+        if topp != None:
+            self._check_float('Top P', topp, 0.0, 1.0)
+            data['top_p'] = topp
+        if minp != None:
+            self._check_float('Min P', minp, 0.0, 1.0)
+            data['min_p'] = minp
+        # Send the request.
+        response = requests.post(
+            url=COMPLETE_URL,
+            headers={
+                'Authorization': f"Bearer {self.key}",
+                'Content-Type': 'application/json',
+            },
+            data=json.dumps(data)
+        )
+        # Process the response.
+        response.raise_for_status()
+        response_data = json.loads(response.text)
+        self.complete_in_tokens += response_data['usage']['prompt_tokens']
+        self.complete_out_tokens += response_data['usage']['completion_tokens']
+        return response_data['choices'][0]['message']['content']
 
 class _Operation(ABC):
     """
@@ -570,14 +791,16 @@ class Factory(ABC):
     method `create` must be implemented; it should return a new client object.
     
     Attributes:
-        max: The maximum number of clients that may be running at a time or 0
-            for no limit.
-        queue: A queue of operations waiting to run on the factory's thread.
-        waiting: The clients currently connected to the server and waiting.
-        running: The clients currently in sessions.
-        uncaught: An exception raised on another thread waiting to be raised
-            on the factory's thread.
-        closed: If the factory has been closed.
+        max (int): The maximum number of clients that may be running at a time
+            or 0 for no limit.
+        queue (queue.Queue): A queue of operations waiting to run on the
+            factory's thread.
+        waiting (list[Client]): The clients currently connected to the server
+            and waiting.
+        running (list[Client]): The clients currently in sessions.
+        uncaught (Exception): An exception raised on another thread waiting to
+            be raised on the factory's thread.
+        closed (boolean): If the factory has been closed.
     
     Arguments:
         max (int): The maximum number of clients that may be running at a time
