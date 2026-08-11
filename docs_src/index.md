@@ -68,6 +68,14 @@ Both classes have other lifecycle methods that are meant to be overridden.
   down.
 - [`on_stop`][tt.Factory.on_stop], which runs before the factory stops.
 
+[`Client`][tt.Client] also provides a way to call an external API for expensive
+operations like text embedding and text completion.
+
+- [`external.embeb`][tt.ExternalAPI.embed] lets you embed a text string as an
+  array of `float`s.
+- [`external.complete`][tt.ExternalAPI.complete] lets you complete a text
+  conversation.
+
 This [more complete example](https://github.com/sgware/tt-random-agent-python)
 shows you everything you need to download and run a Tandem Tales server and
 connect a custom Python agent.
