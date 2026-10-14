@@ -2,7 +2,7 @@
 
 This library provides the abstract classes
 [`tt.Client`][tt.Client] and [`tt.Factory`][tt.Factory] for implementing
-[Tandem Tales](https://tandemtales.net) agents in Python.
+[Tandem Tales](https://sgware.github.io/tt) agents in Python.
 
 [`Client`][tt.Client] handles connecting to the
 [server](https://github.com/sgware/tt-server) and joining a session. A minimal
