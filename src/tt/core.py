@@ -528,7 +528,7 @@ class ExternalAPI:
         Raises an exception if the API key is not set.
         """
         if self.key == None:
-            raise ValueError('This agent does not have an API key. It cannot used the external API.')
+            raise ValueError('This agent does not have an API key. It cannot use the external API.')
     
     def _check_in_limit(self, used, limit):
         """
