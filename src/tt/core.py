@@ -616,7 +616,7 @@ class ExternalAPI:
         self.embed_tokens += response_data['usage']['total_tokens']
         return response_data['data'][0]['embedding']
     
-    def complete(self, messages, reasoning='medium', maxt=None, temp=0.0, topk=None, topp=None, minp=None):
+    def complete(self, messages, maxt=None, reasoning='low', temp=0.0, topk=None, topp=None, minp=None):
         """
         Queries the external text completion API and returns its response as a
             string. Each time this method is called, the number of tokens used
@@ -636,11 +636,11 @@ class ExternalAPI:
                 treated as a message from the user. Every even numbered message
                 (after the first) will be treated as a response from the
                 assistant.
-            reasoning (str): The level of reasoning used by the large language
-                model during text compoetion. Value includes `max`, `high`,
-                `medium`, `low`, and `none`.
             maxt (int): The maximum number of tokens the model may use to
                 generate its response.
+            reasoning (str): The level of reasoning used by the large language
+                model during text compoetion. Values include `max`, `high`,
+                `low`, and `none`.
             temp (float): Influences the randomness of the response. A value of
                 0.0 will give deterministic responses. The max value is 2.0.
             topk (int): When choosing a next token to add to the output, the
@@ -665,8 +665,8 @@ class ExternalAPI:
             if(len(messages) % 2 == 1):
                 raise ValueError('Conversation must have an even number of messages.')
             msg.append({ 'role': 'system', 'content': messages[0] })
-            for i, m in enumerate(messages):
-                if i % 2 == 0:
+            for i, m in enumerate(messages[1:], start=1):
+                if i % 2 == 1:
                     msg.append({ 'role': 'user', 'content': m })
                 else:
                     msg.append({ 'role': 'assistant', 'content': m })
@@ -676,23 +676,23 @@ class ExternalAPI:
             'messages': msg,
             'seed': COMPLETE_SEED
         }
-        if reasoning != None:
-            self._check_nominal('Reasoning level', reasoning, {'max', 'high', 'medium', 'low', 'none'})
-            data['reasoning_effort'] = reasoning
         if maxt != None:
-            self._check_int('Max output tokens', maxt)
+            self._check_int('Max output tokens', maxt, 1)
             data['max_completion_tokens'] = maxt
+        if reasoning != None:
+            self._check_nominal('Reasoning level', reasoning, {'max', 'high', 'low', 'none'})
+            data['reasoning_effort'] = reasoning
         if temp != None:
             self._check_float('Temperature', temp, 0.0, 2.0)
             data['temperature'] = temp
         if topk != None:
-            self._check_int('Top K', topk)
+            self._check_int('Top k', topk)
             data['top_k'] = topk
         if topp != None:
-            self._check_float('Top P', topp, 0.0, 1.0)
+            self._check_float('Top p', topp, 0.0, 1.0)
             data['top_p'] = topp
         if minp != None:
-            self._check_float('Min P', minp, 0.0, 1.0)
+            self._check_float('Min p', minp, 0.0, 1.0)
             data['min_p'] = minp
         # Send the request.
         response = requests.post(
