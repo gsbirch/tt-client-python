@@ -577,7 +577,7 @@ class ExternalAPI:
         elif max != None and value > max:
             raise ValueError(f"{name} must be <= {max}.")
     
-    def embed(self, text, dim=1028):
+    def embed(self, text, dim=1024):
         """
         Queries the external text embedding API and returns its response as an
         array of floats. Each time this method is called, the number of tokens
