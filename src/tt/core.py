@@ -227,7 +227,7 @@ class Client(ABC, threading.Thread):
         if 'password' in self.join:
             str += '; password="***"'
         if 'world' in self.join:
-            str += f"; world=\"{self.join['name']}\""
+            str += f"; world=\"{self.join['world']}\""
         if 'role' in self.join:
             str += f"; role=\"{self.join['role']}\""
         if 'partner' in self.join:
