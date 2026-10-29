@@ -198,13 +198,14 @@ class Client(ABC, threading.Thread):
     """
     
     def __init__(self, name, password, world, role, partner, key, url='localhost', port=DEFAULT_PORT):
+        super().__init__()
         if password is None and ENV_PASSWORD in os.environ:
             password = os.environ[ENV_PASSWORD]
         if key is None and ENV_API_KEY in os.environ:
             key = os.environ[ENV_API_KEY]
         self.factory = None
         self.external = ExternalAPI(key)
-        self.join = {
+        self.join_message = {
             "type": "Join",
             "name": name,
             "password": password,
@@ -223,15 +224,15 @@ class Client(ABC, threading.Thread):
         self.session = None
     
     def __str__(self):
-        str = f"[Client: name={self.join['name']}"
-        if 'password' in self.join:
+        str = f"[Client: name={self.join_message['name']}"
+        if 'password' in self.join_message:
             str += '; password="***"'
-        if 'world' in self.join:
-            str += f"; world=\"{self.join['world']}\""
-        if 'role' in self.join:
-            str += f"; role=\"{self.join['role']}\""
-        if 'partner' in self.join:
-            str += f"; partner=\"{self.join['partner']}\""
+        if 'world' in self.join_message:
+            str += f"; world=\"{self.join_message['world']}\""
+        if 'role' in self.join_message:
+            str += f"; role=\"{self.join_message['role']}\""
+        if 'partner' in self.join_message:
+            str += f"; partner=\"{self.join_message['partner']}\""
         return str + ']'
     
     def run(self):
@@ -260,7 +261,7 @@ class Client(ABC, threading.Thread):
         9. `on_disconnect` will always be called if the client connected.
         """
         # Warn if the password and API key are not set.
-        if self.join['password'] == None and not ENV_PASSWORD in os.environ:
+        if self.join_message['password'] == None and not ENV_PASSWORD in os.environ:
             self.on_warning(f"The environment variable \"{ENV_PASSWORD}\" is not set. This agent will not use a password.")
         if self.external.key == None and not ENV_API_KEY in os.environ:
             self.on_warning(f"The environment variable \"{ENV_API_KEY}\" is not set. This agent will not be able to use the external API.")
@@ -275,7 +276,7 @@ class Client(ABC, threading.Thread):
                 if connect['version'] != VERSION:
                     self.on_warning(f"This client is using version {VERSION} of the communication protocol, but the server is using version {connect['version']}. This may cause miscommunications.")
                 self.on_connect(connect)
-                self.send(self.join)
+                self.send(self.join_message)
             # Wait for the start message.
             start = self.receive('Start')
             if start != None:
