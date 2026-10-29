@@ -510,7 +510,7 @@ class ExternalAPI:
             embedding model.
         complete_in_tokens (int): The number of input tokens used so far by the
             text completion model.
-        complete_out_tokens (int): The number of output toeksn used so far by
+        complete_out_tokens (int): The number of output tokens used so far by
             the text completion model.
     
     Arguments:
@@ -639,7 +639,7 @@ class ExternalAPI:
             maxt (int): The maximum number of tokens the model may use to
                 generate its response.
             reasoning (str): The level of reasoning used by the large language
-                model during text compoetion. Values include `max`, `high`,
+                model during text completion. Values include `max`, `high`,
                 `low`, and `none`.
             temp (float): Influences the randomness of the response. A value of
                 0.0 will give deterministic responses. The max value is 2.0.
