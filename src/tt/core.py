@@ -312,7 +312,7 @@ class Client(ABC, threading.Thread):
                         if not self.input.stopped:
                             self.send(choice)
                     # If the story has ended, notify this client.
-                    elif 'ending' in self.status:
+                    elif self.status.get('ending') is not None:
                         self.on_end(self.status['ending'])
                 # Immediately acknowledge stop messages.
                 elif message['type'] == "Stop":
