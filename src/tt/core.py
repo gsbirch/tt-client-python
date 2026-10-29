@@ -780,7 +780,7 @@ class _StopClient(_Operation):
             if len(self.factory.waiting) == 0:
                 self.factory._create()
         else:
-            self.factory.waiting.remove(client)
+            self.factory.waiting.remove(self.client)
 
 class _CloseFactory(_Operation):
     """ Begin a factory's shut down process. """
