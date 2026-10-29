@@ -335,7 +335,7 @@ class Client(ABC, threading.Thread):
                     m = str(message)
                     if len(m) > 40:
                         m = m[:40] + '...'
-                    self.on_error("The message \"{m}\" is not recognized.")
+                    self.on_error(f"The message \"{m}\" is not recognized.")
         # Register an uncaught exception.
         except Exception as exception:
             uncaught = exception
